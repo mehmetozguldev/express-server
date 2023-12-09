@@ -2,12 +2,14 @@
 
 require('dotenv').config();
 
-const express = require('express');
-const mongoose = require('mongoose');
-const routes = require('./routes/routes');
-
-const mongoString = process.env.DATABASE_URL;
-const PORT = process.env.PORT;
+const express = require('express'),
+    mongoose = require('mongoose'),
+    routes = require('./routes/routes'),
+    bodyParser = require("body-parser"),
+    swaggerJsdoc = require("swagger-jsdoc"),
+    swaggerUi = require("swagger-ui-express"),
+    mongoString = process.env.DATABASE_URL,
+    PORT = process.env.PORT;
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
